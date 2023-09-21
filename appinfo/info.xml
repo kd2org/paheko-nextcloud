@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<info xmlns:xsi= "http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="https://apps.nextcloud.com/schema/apps/info.xsd">
+    <id>paheko</id>
+    <name>Paheko</name>
+    <description>Gestion d'association simple et efficace</description>
+    <version>0.1</version>
+    <licence>agpl</licence>
+    <author>Paheko.cloud</author>
+    <namespace>Paheko</namespace>
+    <category>integration</category>
+    <dependencies>
+        <nextcloud min-version="19" max-version="30"/>
+    </dependencies>
+    <navigations>
+        <navigation>
+            <name>Paheko</name>
+            <route>paheko.page.index</route>
+        </navigation>
+    </navigations>
+
+</info>
