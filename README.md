@@ -1,5 +1,7 @@
 # Application Paheko pour NextCloud
 
+![Capture](https://github.com/kd2org/paheko-nextcloud/assets/584819/f5e6cda0-4a5e-4dfd-a4f4-83b70cf042b8)
+
 Permet d'installer Paheko comme application NextCloud, pour gérer membres et comptabilité.
 
 Statut : alpha, utilisation à vos risques et périls.
