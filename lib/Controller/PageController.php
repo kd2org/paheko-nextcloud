@@ -2,6 +2,9 @@
 
 namespace OCA\Paheko\Controller;
 
+use OCP\IUser;
+use OCP\IUserSession;
+
 use OCP\IRequest;
 use OCP\AppFramework\Http\TemplateResponse;
 use OCP\AppFramework\Controller;
@@ -12,9 +15,12 @@ const PAHEKO_CONFIG_FILE = PAHEKO_DIR . '/config.local.php';
 const PAHEKO_URL = 'https://fossil.kd2.org/paheko/uv/install.php';
 
 class PageController extends Controller {
+	protected string $user_name;
 
-	public function __construct($appName, IRequest $request) {
+	public function __construct($appName, IRequest $request, IUserSession $userSession) {
 		parent::__construct($appName, $request);
+		$user = $userSession->getUser();
+		$this->user_name = ($user instanceof IUser) ? $user->getDisplayName() : 'NextCloud';
 	}
 
 	/**
@@ -104,8 +110,8 @@ class PageController extends Controller {
 		define('Paheko\WWW_URI', $url);
 
 		define('Paheko\LOCAL_LOGIN', [
-			'user' => ['_name' => 'NextCloud'],
-			'permissions' => ['users' => 9, 'config' => 9, 'web' => 9, 'accounting' => 9, 'documents' => 9]
+			'user' => ['_name' => $this->user_name, 'id' => null],
+			'permissions' => ['users' => 9, 'config' => 9, 'web' => 0, 'accounting' => 9, 'documents' => 0]
 		]);
 
 		header_remove('Content-Security-Policy');
