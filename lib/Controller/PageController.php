@@ -59,9 +59,38 @@ class PageController extends Controller {
 		$url = \OC::$server->getURLGenerator()->linkToRoute('paheko.page.index') . 'app/';
 
 		if (!file_exists(PAHEKO_CONFIG_FILE)) {
+			$extra = '';
+			/*
+			$themingDefaults = \OC::$server->getThemingDefaults();
+			$primary = $themingDefaults->getColorPrimary();
+			$primary = substr($primary, 1);
+
+			if (strlen($primary) === 6) {
+				$primary = str_split($primary, 2);
+			}
+			elseif (strlen($primary) === 3) {
+				$primary = str_split($primary, 3);
+				$primary = array_map(fn($a) => $a . $a, $primary);
+			}
+			else {
+				$primary = null;
+			}
+
+			if ($primary) {
+				$primary = array_map('hexdec', $primary);
+				$color1 = array_map(fn($a) => max(30, $a * 0.8), $primary);
+				$color2 = array_map(fn($a) => min(254, $a * 1.2), $primary);
+				$color1 = sprintf('#%02X%02X%02X', $color1[0], $color1[1], $color1[2]);
+				$color2 = sprintf('#%02X%02X%02X', $color2[0], $color2[1], $color2[2]);
+				$extra = "const ADMIN_COLOR1 = " . var_export($color1, true) . ";\n"
+					. "const ADMIN_COLOR2 = " . var_export($color2, true) . ";\n";
+			}
+			*/
+
 			file_put_contents(PAHEKO_CONFIG_FILE, "<?php\n"
 				. "namespace Paheko;\n\n"
-				. "const SECRET_KEY = " . var_export(sha1(random_bytes(16))) . ";\n"
+				. "const SECRET_KEY = " . var_export(sha1(random_bytes(16)), true) . ";\n"
+				. $extra . "\n"
 				. "if (!defined('\\Paheko\\LOCAL_LOGIN')) {\n"
 				. "  http_response_code(403);\n"
 				. "  die('Access forbidden');\n"
