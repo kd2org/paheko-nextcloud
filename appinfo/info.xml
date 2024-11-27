@@ -10,7 +10,7 @@
     <namespace>Paheko</namespace>
     <category>integration</category>
     <dependencies>
-        <nextcloud min-version="19" max-version="30"/>
+        <nextcloud min-version="19" max-version="100"/>
     </dependencies>
     <navigations>
         <navigation>
