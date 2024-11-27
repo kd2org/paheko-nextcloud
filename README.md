@@ -31,7 +31,7 @@ Pensez à sauvegarder ce fichier en plus de la base de données de NextCloud, au
 
 ## Limitations techniques
 
-* NextCloud est très lent, et chaque requête à Paheko doit passer par NextCloud, donc Paheko sera aussi lent que NextCloud (alors que normalement Paheko est bien plus rapide). Voir [cette comparaison entre Paheko et NextCloud](https://paheko.cloud/nextcloud) pour les détails.
+* NextCloud est très lent, et chaque requête à Paheko doit passer par NextCloud, donc Paheko sera aussi lent que NextCloud (alors que normalement Paheko est bien plus rapide). NextCloud rajoute au moins une seconde à chaque clic / action ! Voir [cette comparaison entre Paheko et NextCloud](https://paheko.cloud/nextcloud) pour les détails.
 * L'accès à la gestion du site web est désactivée, car le site web public ne serait pas accessible dans tous les cas.
 * Les pages publiques des extensions (par exemple la réservation de créneau) ne seront pas accessibles.
 * La gestion de documents est désactivée (doublon avec NextCloud).
