@@ -112,27 +112,7 @@ EOF);
 		// Custom CSS rules to match better with NextCloud styling
 		if ($first === 'custom.css') {
 			header('Content-Type: text/css');
-			echo <<<EOF
-			html, body { background: transparent; height: 100%; }
-			#menu { background-color: rgba(var(--gBgColor), 0.7); }
-			#menu a { color: rgb(var(--gTextColor)); font-weight: normal; }
-			main { background-color: #fff; min-height: calc(100% - 1.2em); }
-			#menu h3 span[data-icon]::before { color: rgba(var(--gTextColor), 0.5); }
-			body::-webkit-scrollbar {
-				width: 8px;
-				margin: 2em 0;
-				background: rgba(var(--gBgColor), 0.25);
-			}
-
-			body::-webkit-scrollbar-thumb {
-				background: rgba(var(--gBgColor), 0.5);
-			}
-
-			/* View transitions between page loads */
-			@view-transition {
-			    navigation: auto;
-			}
-EOF;
+			readfile(__DIR__ . '/../../nextcloud.css');
 			exit;
 		}
 		// Serve static files

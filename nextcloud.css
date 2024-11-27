@@ -1,0 +1,39 @@
+html, body {
+	background: transparent;
+	height: 100%;
+}
+
+/* Make the main menu slightly transparent (don't use blur, it is slow) */
+#menu {
+	background-color: rgba(var(--gBgColor), 0.7);
+}
+
+#menu a {
+	color: rgb(var(--gTextColor));
+	font-weight: normal;
+}
+
+main {
+	background-color: #fff;
+	min-height: calc(100% - 1.2em);
+}
+
+#menu h3 span[data-icon]::before {
+	color: rgba(var(--gTextColor), 0.5);
+}
+
+/* Style the main scrollbar so that it's less ugly */
+body::-webkit-scrollbar {
+	width: 8px;
+	margin: 2em 0;
+	background: rgba(var(--gBgColor), 0.25);
+}
+
+body::-webkit-scrollbar-thumb {
+	background: rgba(var(--gBgColor), 0.5);
+}
+
+/* View transitions between page loads */
+@view-transition {
+    navigation: auto;
+}
